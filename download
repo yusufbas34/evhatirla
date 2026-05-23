@@ -1,0 +1,32 @@
+class CategoryModel {
+  final String id;
+  final String ad;
+  final String ikon;
+  final int renkIndex;
+  final int sira;
+
+  const CategoryModel({
+    required this.id,
+    required this.ad,
+    required this.ikon,
+    required this.renkIndex,
+    required this.sira,
+  });
+
+  factory CategoryModel.fromMap(Map<String, dynamic> map, String id) {
+    return CategoryModel(
+      id: id,
+      ad: (map['ad'] as String?) ?? '',
+      ikon: (map['ikon'] as String?) ?? '📦',
+      renkIndex: (map['renkIndex'] as int?) ?? 0,
+      sira: (map['sira'] as int?) ?? 999,
+    );
+  }
+
+  Map<String, dynamic> toMap() => {
+        'ad': ad,
+        'ikon': ikon,
+        'renkIndex': renkIndex,
+        'sira': sira,
+      };
+}
